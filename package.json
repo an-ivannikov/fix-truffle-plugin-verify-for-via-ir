@@ -1,0 +1,65 @@
+{
+  "name": "fix-truffle-plugin-verify-for-via-ir",
+  "version": "1.0.0",
+  "description": "Fix truffle-plugin-verify for viaIR compiler settings",
+  "keywords": [
+    "truffle-plugin-verify",
+    "via-ir",
+    "viair",
+    "fix"
+  ],
+  "private": true,
+  "license": "MIT",
+  "author": {
+    "name": "Aleksandr Ivannikov",
+    "email": "info@ivannikov.pro",
+    "url": "https://ivannikov.pro"
+  },
+  "homepage": "https://github.com/an-ivannikov/fix-truffle-plugin-verify-for-via-ir#readme",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/an-ivannikov/fix-truffle-plugin-verify-for-via-ir.git"
+  },
+  "bugs": {
+    "url": "https://github.com/an-ivannikov/fix-truffle-plugin-verify-for-via-ir/issues",
+    "email": "info@ivannikov.pro"
+  },
+  "scripts": {
+    "postinstall": "node ./scripts/fix-truffle-plugin-verify-for-via-ir.js",
+    "clean": "rimraf ./build/ && mkdirp ./build/ && rimraf ./flatten/ && mkdirp ./flatten/",
+    "precompile": "yarn clean",
+    "compile": "truffle compile",
+    "postcompile": "yarn run flatten",
+    "deploy": "truffle migrate --network",
+    "verify": "truffle run verify --verifiers=etherscan --network",
+    "test": "truffle test",
+    "flatten": "waffle flatten",
+    "contract-size": "truffle run contract-size",
+    "ganache": "node ./scripts/ganache.js"
+  },
+  "files": [
+    "contracts",
+    "build"
+  ],
+  "engines": {
+    "npm": "please-use-yarn",
+    "node": "18",
+    "yarn": ">=1.22"
+  },
+  "dependencies": {
+    "@openzeppelin/contracts": "5.0.2",
+    "@openzeppelin/contracts-upgradeable": "5.0.2"
+  },
+  "devDependencies": {
+    "@truffle/hdwallet-provider": "^2.1.15",
+    "dotenv": "^16.4.5",
+    "ethereum-waffle": "^4.0.10",
+    "ethers": "^6.12.1",
+    "ganache": "^7.9.2",
+    "mkdirp": "^3.0.1",
+    "rimraf": "^5.0.7",
+    "truffle": "^5.11.5",
+    "truffle-contract-size": "^2.0.1",
+    "truffle-plugin-verify": "0.6.7"
+  }
+}
