@@ -1,4 +1,4 @@
-# Fix truffle-plugin-verify for viaIR compiler settings
+# Fix truffle-plugin-verify for `--via-ir` (`viaIR: true`) compiler settings
 **Postinstall fix for `truffle-plugin-verify@v0.6.7`.**
 
 *The problem and solution are described here:
@@ -6,7 +6,7 @@
 
 
 ## Problem
-When using the --via-ir (viaIR: true) compiler option,
+When using the `--via-ir` (`viaIR: true`) compiler option,
 the plugin cannot verify the smart contract and produces this error:
 ```text
 Fail - Unable to verify. Compiled contract deployment bytecode does NOT match the transaction deployment bytecode.
